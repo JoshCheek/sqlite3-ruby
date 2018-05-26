@@ -1,4 +1,5 @@
 # support multiple ruby version (fat binaries under windows)
+
 begin
   RUBY_VERSION =~ /(\d+\.\d+)/
   require "sqlite3/#{$1}/sqlite3_native"
