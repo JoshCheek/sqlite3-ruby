@@ -2,7 +2,13 @@
 
 begin
   RUBY_VERSION =~ /(\d+\.\d+)/
-  require "sqlite3/#{$1}/sqlite3_native"
+
+  # pointless printing to trigger a build
+  if require "sqlite3/#{$1}/sqlite3_native"
+    puts "loaded"
+  else
+    puts "already loaded"
+  end
 rescue LoadError
   require 'sqlite3/sqlite3_native'
 end
